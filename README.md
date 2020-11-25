@@ -1,2 +1,9 @@
 ﻿# Touch-me-react-native
- Update using git push origin main
+ 
+ git add .
+ 
+ 
+ git commit -m "new indo"
+ 
+ 
+ git push  
