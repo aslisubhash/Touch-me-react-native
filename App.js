@@ -1,14 +1,27 @@
 import React, {useState} from "react";
-import {Text, StyleSheet, View, TouchableOpacity,} from "react-native"
+import {Text, StyleSheet, View, TouchableOpacity,StatusBar} from "react-native"
 
 const App = ()=>{
-  const  [randomColor, setRandomColor] = useState("rgb(12, 100 , 136)");
+  const  [randomColor, setRandomColor] = useState("rgb(120, 10 , 136)");
+  const changeBG = () =>{
+    let color = "rgb( " +
+      Math.floor(Math.random()* 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      ")";
+      setRandomColor(color);
+  };
 
 
   return (
     <>
-    <View style={[styles.container,{backgroundColor:randomColor}]}>
-    <Text style={styles.text}>tap me</Text>
+    <StatusBar backgroundColor={randomColor} />
+    <View style={[styles.container,{ backgroundColor:randomColor}]}>
+      <TouchableOpacity onPress={changeBG}>
+        <Text style={styles.text}>tap me</Text>
+      </TouchableOpacity>
     </View>
     </>
   )
@@ -22,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  text:{
+  text: {
     fontSize: 20,
     backgroundColor: "#BB2CD9",
     paddingVertical: 10,
@@ -30,6 +43,5 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     borderRadius: 10,
     textTransform: "uppercase"
-  }
-
+  },
 })
